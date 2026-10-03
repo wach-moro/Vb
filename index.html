@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FB to JBP Link Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; padding: 20px; text-align: center; }
+        .box { background: #fff; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        input[type="text"] { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { background: #1877f2; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #165fe5; }
+        textarea { width: 90%; height: 120px; margin-top: 15px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Facebook Link Generator</h2>
+    <p>Apna Facebook Profile ya Photo URL yahan dalein:</p>
+    <input type="text" id="fbUrl" placeholder="https://www.facebook.com/...">
+    <br>
+    <button onclick="generateLink()">Generate Code</button>
+    <br>
+    <h3>Aap ka Code:</h3>
+    <textarea id="outputCode" readonly placeholder="Yahan code ban kar aayega..."></textarea>
+</div>
+
+<script>
+function generateLink() {
+    let url = document.getElementById('fbUrl').value.trim();
+    let targetUrl = "https://almm.urlxx347.com/?utm_source=Bullet&utm_medium=Gujjar";
+    
+    // Code template
+    let codeTemplate = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View</title>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Check this out">
+    <meta name="twitter:description" content="Click to view details.">
+    <meta name="twitter:image" content="${url}">
+    <meta property="og:title" content="Check this out">
+    <meta property="og:description" content="Click to view details.">
+    <meta property="og:image" content="${url}">
+    <meta property="og:url" content="${url}">
+    <script>
+        window.location.replace("${targetUrl}");
+    </script>
+</head>
+<body></body>
+</html>`;
+
+    document.getElementById('outputCode').value = codeTemplate;
+    alert("Code generate ho gaya hai! Isay copy karke apni file mein save kar lein.");
+}
+</script>
+
+</body>
+</html>
